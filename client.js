@@ -1,6 +1,13 @@
 const axois = require('axios');
-const init = async () => {
+const initget = async () => {
   const res = await axois.get('http://localhost:5000/api/ninjas');
   console.log('res', res.data);
 };
-init();
+const initPost = async () => {
+  const res = await axois.post('http://localhost:5000/api/ninjas', {
+    name: 'Peter',
+  });
+  console.log('res', res.data);
+};
+// initget();
+initPost();
