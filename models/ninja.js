@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const GeoSchema = require('./geo');
 const Schema = mongoose.Schema;
 
 // creating schema
@@ -12,7 +13,7 @@ const NinjaSchema = new Schema({
     type: Boolean,
     default: false,
   },
-  //add in geo locations
+  geometry: GeoSchema
 });
 const fileNameInDb = 'ninja';
 
