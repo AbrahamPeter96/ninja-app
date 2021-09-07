@@ -16,8 +16,19 @@ router.post('/ninjas', async (req, res, next) => {
   }
 });
 // Update in db
-router.put('/ninjas/:id', (req, res) => {
-  res.send({ type: 'PUT' });
+router.put('/ninjas/:id', async (req, res, next) => {
+  try {
+    const updateNinja = await Ninja.findByIdAndUpdate(
+      { _id: req.params.id },
+      req.body
+    );
+    const updateNinja2 = await Ninja.findOne({ _id: req.params.id });
+    console.log('updateNinja', updateNinja);
+    console.log('updateNinja2', updateNinja2);
+    res.send({ type: 'PUT', ...updateNinja2 });
+  } catch (e) {
+    next(e);
+  }
 });
 // delete in db
 router.delete('/ninjas/:someId', async (req, res, next) => {

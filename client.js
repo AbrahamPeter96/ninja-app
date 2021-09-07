@@ -25,6 +25,18 @@ const initDel = async () => {
     console.log(e.message);
   }
 };
+const initPut = async () => {
+  try {
+    const res = await axois.put(
+      'http://localhost:5000/api/ninjas/61379962d487e088af2c0f82',
+      { name: 'Altaf' }
+    );
+    console.log('res', res.data);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
 // initget();
 // initPost();
-initDel();
+// initDel();
+initPut();
