@@ -6,7 +6,7 @@ const initget = async () => {
 const initPost = async () => {
   try {
     const res = await axois.post('http://localhost:5000/api/ninjas', {
-      namei: 'Peter',
+      name: 'Peter',
       rank: 'Black Belt',
       available: true,
     });
@@ -15,5 +15,14 @@ const initPost = async () => {
     console.log(e.message);
   }
 };
+const initDel = async () => {
+  try {
+    const res = await axois.delete('http://localhost:5000/api/ninjas/1');
+    console.log('res', res.data);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
 // initget();
-initPost();
+// initPost();
+initDel();

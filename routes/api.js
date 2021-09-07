@@ -20,7 +20,8 @@ router.put('/ninjas/:id', (req, res) => {
   res.send({ type: 'PUT' });
 });
 // delete in db
-router.delete('/ninjas/:id', (req, res) => {
+router.delete('/ninjas/:someId', (req, res) => {
+  console.log('delete', req.params.someId);
   res.send({ type: 'DEL' });
 });
 
