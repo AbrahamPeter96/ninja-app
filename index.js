@@ -3,9 +3,9 @@ const app = express(); //set up express
 require('dotenv').config();
 const port = process.env.PORT || 4000;
 //Listen for req
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   console.log('Get');
-  res.end();
+  res.send({ name: 'Abraham' });
 });
 
 app.listen(port, () => {
