@@ -4,7 +4,7 @@ const app = express(); //set up express
 require('dotenv').config();
 const port = process.env.PORT || 4000;
 
-app.use(router);
+app.use('/api', router);
 
 //Listen for req
 app.listen(port, () => {
