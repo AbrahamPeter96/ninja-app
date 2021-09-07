@@ -6,6 +6,8 @@ const initget = async () => {
 const initPost = async () => {
   const res = await axois.post('http://localhost:5000/api/ninjas', {
     name: 'Peter',
+    rank: 'Black Belt',
+    available: true,
   });
   console.log('res', res.data);
 };

@@ -2,9 +2,12 @@ const express = require('express');
 const router = require('./routes/api');
 const bodyParser = require('body-parser');
 const app = express(); //set up express
+const mongoose = require('mongoose');
 require('dotenv').config();
 const port = process.env.PORT || 4000;
-
+const dbName = 'ninjago';
+mongoose.connect(`mongodb://127.0.0.1:27017/${dbName}`);
+mongoose.Promise=global.Promise;
 // Helps in parsing data of input requests i.e req.body
 app.use(bodyParser.json());
 //initzation of routes
