@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 //initzation of routes
 app.use('/api', router);
 app.use((err, req, res, next) => {
-  res.send({ error: err.message });
+  res.status(422).send({ error: err.message });
 });
 //Listen for req
 app.listen(port, () => {
