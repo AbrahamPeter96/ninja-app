@@ -8,7 +8,7 @@ router.get('/ninjas', (req, res) => {
 // add new in db
 router.post('/ninjas', (req, res) => {
   console.log('Request.Body', req.body);
-  res.send({ type: 'POST' });
+  res.send({ type: 'POST', body: req.body });
 });
 // Update in db
 router.put('/ninjas/:id', (req, res) => {
