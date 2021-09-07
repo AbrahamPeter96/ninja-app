@@ -17,7 +17,9 @@ const initPost = async () => {
 };
 const initDel = async () => {
   try {
-    const res = await axois.delete('http://localhost:5000/api/ninjas/1');
+    const res = await axois.delete(
+      'http://localhost:5000/api/ninjas/613794c313407a40764ca033'
+    );
     console.log('res', res.data);
   } catch (e) {
     console.log(e.message);

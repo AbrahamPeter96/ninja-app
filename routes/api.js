@@ -20,9 +20,14 @@ router.put('/ninjas/:id', (req, res) => {
   res.send({ type: 'PUT' });
 });
 // delete in db
-router.delete('/ninjas/:someId', (req, res) => {
-  console.log('delete', req.params.someId);
-  res.send({ type: 'DEL' });
+router.delete('/ninjas/:someId', async (req, res, next) => {
+  try {
+    const delNinja = await Ninja.findByIdAndRemove({ _id: req.params.someId });
+    console.log('delNinja', delNinja);
+    res.send({ type: 'DEL' });
+  } catch (e) {
+    next(e);
+  }
 });
 
 module.exports = router;
