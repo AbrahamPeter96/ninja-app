@@ -5,7 +5,7 @@ const initget = async () => {
 };
 const initPost = async () => {
   const res = await axois.post('http://localhost:5000/api/ninjas', {
-    name: 'Peter',
+    namei: 'Peter',
     rank: 'Black Belt',
     available: true,
   });

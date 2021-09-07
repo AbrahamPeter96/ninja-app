@@ -7,12 +7,12 @@ router.get('/ninjas', (req, res) => {
   res.send({ type: 'GET' });
 });
 // add new in db
-router.post('/ninjas', async (req, res) => {
+router.post('/ninjas', async (req, res, next) => {
   try {
     const ninja = await Ninja.create(req.body);
     res.send({ type: 'POST', ...ninja });
   } catch (e) {
-    res.send({ type: 'POST', msg: e.message });
+    next(e);
   }
 });
 // Update in db
