@@ -8,8 +8,12 @@ router.get('/ninjas', (req, res) => {
 });
 // add new in db
 router.post('/ninjas', async (req, res) => {
-  const ninja = await Ninja.create(req.body);
-  res.send({ type: 'POST', ...ninja });
+  try {
+    const ninja = await Ninja.create(req.body);
+    res.send({ type: 'POST', ...ninja });
+  } catch (e) {
+    res.send({ type: 'POST', msg: e.message });
+  }
 });
 // Update in db
 router.put('/ninjas/:id', (req, res) => {
